@@ -10,5 +10,13 @@ import Foundation
 import  UIKit
 
 class ItemListViewController : UIViewController {
-    @IBOutlet var tableView : UITableView?
+    @IBOutlet var tableView : UITableView!
+    @IBOutlet var dataProvider: UITableViewDataSource & UITableViewDelegate!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.tableView?.dataSource = dataProvider
+        self.tableView?.delegate = dataProvider
+    }
 }
